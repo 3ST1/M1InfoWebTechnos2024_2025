@@ -1,1 +1,5 @@
 # M1InfoWebTechnos2024_2025
+This folder contains the projects done during the course.
+- An example Vanilla JavaScript project that requests a remote web service using the fetch API and displays the results in a HTML table built on the fly using the HTML table API. You can try to change what the search button calls in order to try another web service (a music database REST endpoint)
+
+- A client / server example. The server proposes RESTful Web Services for searching/inserting/updating/deleting some data (assignments), using the good practives for the names of the different "routes" proposed (URIs). The client shows how to implement CRUD requests using the fetch API, HTML forms and the table API. The data on the server has been generated using mockaroo.com, a web site very useful for generating test data.

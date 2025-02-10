@@ -1,8 +1,10 @@
 const WS_URI = "https://jsonplaceholder.typicode.com/users";
 
-const METALLICA_URI = "https://wasabi.i3s.unice.fr/api/v1/artist_all/name/Metallica";
+const METALLICA_URI = "https://wasabi.i3s.unice.fr/api/v1/artist_all/name/";
 
-function sendRequestToRemoteWS() {
+function sendRequestToRemoteWS(event) {
+    event.preventDefault();
+
     fetch(WS_URI)
         .then(response => {
             // the response is a "promise"
@@ -85,8 +87,21 @@ function displayResultsAsTable(data) {
     resultsDiv.appendChild(table);
 }
 
-function sendRequestToMusicRemoteWS() {
-    fetch(METALLICA_URI)
+function sendRequestToMusicRemoteWS(event) {
+    // prevent the default behavior of the form
+    // we do not want the browser to display a blank page
+    event.preventDefault();
+
+    // Get the value from the search input field
+    const searchInput = document.querySelector("#searchInput");
+    console.log(searchInput.value);
+
+    // get the value
+    const searchValue = searchInput.value;
+    let URL = METALLICA_URI + searchValue + "fojdgi";
+    console.log("URL: " + URL);
+
+    fetch(URL)
         .then(response => {
             // the response is a "promise"
             //console.log(response)
@@ -99,14 +114,21 @@ function sendRequestToMusicRemoteWS() {
                     displayMusicResultsAsTable(data);
                 })
             console.log("INSIDE THE FETCH, AFTER REQUEST HAS BEEN SENT")
-
+            
            
+        }).catch(error => {
+            alert('NETWORK Error or BAD URL:', error);
         })
+    
 
     console.log("AFTER THE FETCH");
 }
 
 function displayMusicResultsAsTable(data) {
+    if(data.members === undefined){
+       alert("NO ANSWER FOR THIS SEARCH !");
+        return
+    }
     //console.log(data);
 
     // Get the div where we will display the results

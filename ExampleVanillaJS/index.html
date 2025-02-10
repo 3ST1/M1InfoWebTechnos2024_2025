@@ -9,10 +9,16 @@
 
 <body>
     <h1 id="mainTitle">First example..., we will query some web services here...</h1>
-    <button onclick="sendRequestToMusicRemoteWS();">Please send a request to a web service and display results</button>
+    <form onsubmit="sendRequestToRemoteWS(event)">
+        <label>
+            Search term: 
+           <input type="text" id="searchInput" placeholder="Search for a song..." >
+        </label>
+    <button>Please send a request to a web service and display results</button>
+    </form>
 
     <div>
-        <h2>Results:</h2>
+        <h2>Results:</h2>   
         <div id="results">
             <!-- Results will be displayed here -->
              

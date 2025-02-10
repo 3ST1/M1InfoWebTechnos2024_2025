@@ -1,0 +1,55 @@
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Accueil</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js"></script>
+</head>
+
+<body>
+    <h1 id="mainTitle">First example..., we will query some web services here...</h1>
+    <h1>Add a new Assignment (POST)</h1>
+        <form id="assignmentForm" enctype="multipart/form-data" onsubmit="addAssignment(event)">
+            <input type="text" id="name" name="name" placeholder="Assignment Name" required>
+            <input type="date" id="dueDate" name="dueDate" required>
+            <label>
+                <input type="checkbox" id="submitted" name="submitted" value=false> Submitted
+            </label>
+            <button type="submit">Add Assignment</button>
+        </form>
+
+<div class="message" id="message"></div>
+<h1>Modify an existing assignment</h1>
+<form id="editAssignmentForm" enctype="multipart/form-data" onsubmit="editAssignment(event)">
+    <input type="number" id="id" name="id" placeholder="Assignment ID" required>
+    <input type="text" id="name" name="name" placeholder="Assignment Name" required>
+    <input type="date" id="dueDate" name="dueDate" required>
+    <label>
+        <input type="checkbox" id="submitted" name="submitted" value=true> Submitted
+    </label>
+    <button type="submit">Update Assignment</button>
+</form>
+
+    <h1>Query Assignments (GET)</h1>
+    <form onsubmit="sendRequestToRemoteWS(event)">
+    <button>Please send a request to a web service and display results</button>
+    </form>
+
+    <div>
+        <h2>Results:</h2> 
+        <p >Number of assignments: <span id="count">0</span>, Number of pages: <span id="nbPages">0</span></p>
+        <!-- for pagination -->  
+         <button id="prev" onclick="prevPage(event)">Previous</button>
+         &nbsp;
+        <button id="next" onclick="nextPage(event)">Next</button>
+        &nbsp;
+        <button id="last" onclick="lastPage(event)">Last</button>
+        <div id="results">
+            <!-- Results will be displayed here -->
+             
+        </div>
+    </div>
+</body>
+
+</html>
