@@ -1,0 +1,39 @@
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Accueil</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js"></script>
+</head>
+
+<body>
+    <h1 id="mainTitle">First example..., we will query some web services here...</h1>
+    <!-- <button onclick="sendGetAssignmentsRequest();">Please send a request to a web service and display results</button> -->
+
+    <div>
+        <h2>Assignments:</h2>
+        <div id="results"></div>
+    </div>
+
+    <div class="pagination">
+        <button id="firstPage">First Page</button>
+        <button id="prevPage">Previous Page</button>
+        <button id="nextPage">Next Page</button>
+        <button id="lastPage">Last Page</button>
+    </div>
+
+
+    <h2 id="actionForm">Add Assignment</h2>
+    <form id="assignmentForm" enctype="multipart/form-data" onsubmit="addAssignment(event)">
+        <input type="text" id="name" name="name" placeholder="Assignment Name" required>
+        <input type="date" id="dueDate" name="dueDate" required>
+        <label>
+            <input type="checkbox" id="submitted" name="submitted" value=false> Submitted
+        </label>
+        <button type="submit">Add Assignment</button>
+    </form>
+</body>
+
+
+</html>
